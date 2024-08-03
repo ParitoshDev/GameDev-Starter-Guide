@@ -219,7 +219,7 @@ MonoBehaviour:
   targets:
   - {fileID: 8513374125694231079}
   - {fileID: 2179229940803286895}
-  moveSpeed: 0.5
+  moveSpeed: 1
   currentTarget: 0
 --- !u!61 &3413400336184146606
 BoxCollider2D:

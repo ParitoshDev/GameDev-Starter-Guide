@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    #endregion+
+    #endregion
 
 
 

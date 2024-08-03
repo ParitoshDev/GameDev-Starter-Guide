@@ -1,19 +1,22 @@
-using System.Runtime.InteropServices;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyPathEditor : MonoBehaviour
 {
     [SerializeField] Transform[] targets;
-    [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed = 1f;
     [SerializeField] int currentTarget = 0;
 
+    
     private void Awake()
     {
         currentTarget = 0;
-    }
+    } 
 
+    private void Start()
+    {
+        AudioManager.Instance.Play("Enemy");
+
+    }
     private void Update()
     {  
         if (transform.position == targets[currentTarget].position) {
@@ -50,7 +53,8 @@ public class EnemyPathEditor : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
-            Time.timeScale = 0; 
+            Time.timeScale = 0;
+            UIManager.Instance.EnableGameOver();
         }
     }
 }
